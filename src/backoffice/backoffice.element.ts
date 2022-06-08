@@ -38,6 +38,11 @@ export default class UmbBackoffice extends UmbContextProviderMixin(LitElement) {
     this.provideContext('umbNodeStore', new UmbNodeStore());
     this.provideContext('umbDataTypeStore', new UmbDataTypeStore());
     this.provideContext('umbNotificationService', new UmbNotificationService());
+    
+    // TODO: remove - only for testing purposes
+    setTimeout(() => {
+      this.provideContext('umbExtensionRegistry', window.Umbraco.extensionRegistry);
+    }, 5000);
   }
 
   render() {
